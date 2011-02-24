@@ -143,6 +143,13 @@ Partial Class IMMP4Cam
         Me.TextBoxLiveViewCameraName = New System.Windows.Forms.TextBox()
         Me.TabControl = New System.Windows.Forms.TabControl()
         Me.TimerWMPStatus = New System.Windows.Forms.Timer(Me.components)
+        Me.PanelCameraSettings3 = New System.Windows.Forms.Panel()
+        Me.ButtonSetCameraParametersCompression = New System.Windows.Forms.Button()
+        Me.NumericUpDownCompression = New System.Windows.Forms.NumericUpDown()
+        Me.LabelCompression = New System.Windows.Forms.Label()
+        Me.PanelCameraInfo = New System.Windows.Forms.Panel()
+        Me.LabelOCXVersion = New System.Windows.Forms.Label()
+        Me.TextBoxOCXVersion = New System.Windows.Forms.TextBox()
         Me.StatusStrip.SuspendLayout()
         Me.TabPageSettings.SuspendLayout()
         Me.PanelUsernamePassword.SuspendLayout()
@@ -172,6 +179,9 @@ Partial Class IMMP4Cam
         CType(Me.IMMP4Control, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.PanelStatus.SuspendLayout()
         Me.TabControl.SuspendLayout()
+        Me.PanelCameraSettings3.SuspendLayout()
+        CType(Me.NumericUpDownCompression, System.ComponentModel.ISupportInitialize).BeginInit()
+        Me.PanelCameraInfo.SuspendLayout()
         Me.SuspendLayout()
         '
         'StatusStrip
@@ -254,6 +264,8 @@ Partial Class IMMP4Cam
         '
         'TabPageSettings
         '
+        Me.TabPageSettings.Controls.Add(Me.PanelCameraInfo)
+        Me.TabPageSettings.Controls.Add(Me.PanelCameraSettings3)
         Me.TabPageSettings.Controls.Add(Me.ButtonRestart)
         Me.TabPageSettings.Controls.Add(Me.PanelUsernamePassword)
         Me.TabPageSettings.Controls.Add(Me.PanelCameraSettings2)
@@ -286,7 +298,7 @@ Partial Class IMMP4Cam
         Me.PanelUsernamePassword.Controls.Add(Me.TextBoxUsername)
         Me.PanelUsernamePassword.Controls.Add(Me.LabelPassword)
         Me.PanelUsernamePassword.Controls.Add(Me.LabelUsername)
-        Me.PanelUsernamePassword.Location = New System.Drawing.Point(390, 31)
+        Me.PanelUsernamePassword.Location = New System.Drawing.Point(390, 122)
         Me.PanelUsernamePassword.Name = "PanelUsernamePassword"
         Me.PanelUsernamePassword.Size = New System.Drawing.Size(327, 90)
         Me.PanelUsernamePassword.TabIndex = 47
@@ -359,7 +371,7 @@ Partial Class IMMP4Cam
         Me.PanelCameraSettings2.Controls.Add(Me.LabelContrast)
         Me.PanelCameraSettings2.Controls.Add(Me.LabelBrightness)
         Me.PanelCameraSettings2.Controls.Add(Me.LabelColour)
-        Me.PanelCameraSettings2.Location = New System.Drawing.Point(390, 153)
+        Me.PanelCameraSettings2.Location = New System.Drawing.Point(390, 248)
         Me.PanelCameraSettings2.Name = "PanelCameraSettings2"
         Me.PanelCameraSettings2.Size = New System.Drawing.Size(327, 204)
         Me.PanelCameraSettings2.TabIndex = 46
@@ -1371,6 +1383,75 @@ Partial Class IMMP4Cam
         '
         Me.TimerWMPStatus.Interval = 40
         '
+        'PanelCameraSettings3
+        '
+        Me.PanelCameraSettings3.BackColor = System.Drawing.SystemColors.Control
+        Me.PanelCameraSettings3.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
+        Me.PanelCameraSettings3.Controls.Add(Me.ButtonSetCameraParametersCompression)
+        Me.PanelCameraSettings3.Controls.Add(Me.NumericUpDownCompression)
+        Me.PanelCameraSettings3.Controls.Add(Me.LabelCompression)
+        Me.PanelCameraSettings3.Location = New System.Drawing.Point(390, 484)
+        Me.PanelCameraSettings3.Name = "PanelCameraSettings3"
+        Me.PanelCameraSettings3.Size = New System.Drawing.Size(327, 91)
+        Me.PanelCameraSettings3.TabIndex = 48
+        '
+        'ButtonSetCameraParametersCompression
+        '
+        Me.ButtonSetCameraParametersCompression.Location = New System.Drawing.Point(131, 53)
+        Me.ButtonSetCameraParametersCompression.Name = "ButtonSetCameraParametersCompression"
+        Me.ButtonSetCameraParametersCompression.Size = New System.Drawing.Size(60, 20)
+        Me.ButtonSetCameraParametersCompression.TabIndex = 43
+        Me.ButtonSetCameraParametersCompression.Text = "Set"
+        Me.ButtonSetCameraParametersCompression.UseVisualStyleBackColor = True
+        '
+        'NumericUpDownCompression
+        '
+        Me.NumericUpDownCompression.Location = New System.Drawing.Point(199, 18)
+        Me.NumericUpDownCompression.Maximum = New Decimal(New Integer() {16, 0, 0, 0})
+        Me.NumericUpDownCompression.Minimum = New Decimal(New Integer() {5, 0, 0, 0})
+        Me.NumericUpDownCompression.Name = "NumericUpDownCompression"
+        Me.NumericUpDownCompression.Size = New System.Drawing.Size(50, 20)
+        Me.NumericUpDownCompression.TabIndex = 34
+        Me.NumericUpDownCompression.Value = New Decimal(New Integer() {8, 0, 0, 0})
+        '
+        'LabelCompression
+        '
+        Me.LabelCompression.AutoSize = True
+        Me.LabelCompression.Location = New System.Drawing.Point(68, 20)
+        Me.LabelCompression.Name = "LabelCompression"
+        Me.LabelCompression.Size = New System.Drawing.Size(67, 13)
+        Me.LabelCompression.TabIndex = 31
+        Me.LabelCompression.Text = "Compression"
+        '
+        'PanelCameraInfo
+        '
+        Me.PanelCameraInfo.BackColor = System.Drawing.SystemColors.Control
+        Me.PanelCameraInfo.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
+        Me.PanelCameraInfo.Controls.Add(Me.TextBoxOCXVersion)
+        Me.PanelCameraInfo.Controls.Add(Me.LabelOCXVersion)
+        Me.PanelCameraInfo.Location = New System.Drawing.Point(390, 31)
+        Me.PanelCameraInfo.Name = "PanelCameraInfo"
+        Me.PanelCameraInfo.Size = New System.Drawing.Size(327, 56)
+        Me.PanelCameraInfo.TabIndex = 49
+        '
+        'LabelOCXVersion
+        '
+        Me.LabelOCXVersion.AutoSize = True
+        Me.LabelOCXVersion.Location = New System.Drawing.Point(12, 20)
+        Me.LabelOCXVersion.Name = "LabelOCXVersion"
+        Me.LabelOCXVersion.Size = New System.Drawing.Size(67, 13)
+        Me.LabelOCXVersion.TabIndex = 31
+        Me.LabelOCXVersion.Text = "OCX Version"
+        '
+        'TextBoxOCXVersion
+        '
+        Me.TextBoxOCXVersion.BackColor = System.Drawing.Color.White
+        Me.TextBoxOCXVersion.Location = New System.Drawing.Point(131, 17)
+        Me.TextBoxOCXVersion.Name = "TextBoxOCXVersion"
+        Me.TextBoxOCXVersion.ReadOnly = True
+        Me.TextBoxOCXVersion.Size = New System.Drawing.Size(172, 20)
+        Me.TextBoxOCXVersion.TabIndex = 32
+        '
         'IMMP4Cam
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -1421,6 +1502,11 @@ Partial Class IMMP4Cam
         Me.PanelStatus.ResumeLayout(False)
         Me.PanelStatus.PerformLayout()
         Me.TabControl.ResumeLayout(False)
+        Me.PanelCameraSettings3.ResumeLayout(False)
+        Me.PanelCameraSettings3.PerformLayout()
+        CType(Me.NumericUpDownCompression, System.ComponentModel.ISupportInitialize).EndInit()
+        Me.PanelCameraInfo.ResumeLayout(False)
+        Me.PanelCameraInfo.PerformLayout()
         Me.ResumeLayout(False)
 
     End Sub
@@ -1544,5 +1630,12 @@ Partial Class IMMP4Cam
     Friend WithEvents Label1 As System.Windows.Forms.Label
     Friend WithEvents PictureBox1 As System.Windows.Forms.PictureBox
     Friend WithEvents TextBoxLastTrigger As System.Windows.Forms.TextBox
+    Friend WithEvents PanelCameraSettings3 As System.Windows.Forms.Panel
+    Friend WithEvents ButtonSetCameraParametersCompression As System.Windows.Forms.Button
+    Friend WithEvents NumericUpDownCompression As System.Windows.Forms.NumericUpDown
+    Friend WithEvents LabelCompression As System.Windows.Forms.Label
+    Friend WithEvents PanelCameraInfo As System.Windows.Forms.Panel
+    Friend WithEvents LabelOCXVersion As System.Windows.Forms.Label
+    Friend WithEvents TextBoxOCXVersion As System.Windows.Forms.TextBox
 
 End Class

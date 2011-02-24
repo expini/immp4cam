@@ -97,6 +97,8 @@ Public Class IMMP4Cam
         TextBoxLiveViewCameraName.Text = TextBoxCameraName.Text
         TextBoxLiveViewCameraIP.Text = TextBoxCameraIP.Text + ":" + TextBoxCameraPort.Text
 
+        TextBoxOCXVersion.Text = IMMP4Control.Name + " " + IMMP4Control.OcxVer
+
         WMPControl.uiMode = "none"
         WMPControl.settings.volume = 0
         WMPControl.settings.mute = True
@@ -519,6 +521,35 @@ Public Class IMMP4Cam
     Private Sub ButtonSetCameraParametersColours_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles ButtonSetCameraParametersColours.Click
 
         Dim open As String = "http://" + TextBoxCameraIP.Text + ":" + TextBoxCameraPort.Text + "/video_e.html?" + "V_OCol=" + NumericUpDownColour.Value.ToString + "&V_Br=" + NumericUpDownBrightness.Value.ToString + "&V_Co=" + NumericUpDownContrast.Value.ToString + "&V_Sa=" + NumericUpDownSaturation.Value.ToString
+
+        Try
+
+            Dim myWebRequest As WebRequest = WebRequest.Create(open)
+
+            myWebRequest.PreAuthenticate = True
+
+            Dim UserName As String = TextBoxUsername.Text
+            Dim Password As String = TextBoxPassword.Text
+
+            Dim networkCredential As New NetworkCredential(UserName, Password)
+
+            myWebRequest.Credentials = networkCredential
+
+            Dim myWebResponse As WebResponse = myWebRequest.GetResponse()
+
+            myWebResponse.Close()
+
+        Catch
+
+            MsgBox("Settings failed - Authentication error!")
+
+        End Try
+
+    End Sub
+
+    Private Sub ButtonSetCameraParametersCompression_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles ButtonSetCameraParametersCompression.Click
+
+        Dim open As String = "http://" + TextBoxCameraIP.Text + ":" + TextBoxCameraPort.Text + "/video_e.html?" + "V_Cm=" + NumericUpDownCompression.Value.ToString
 
         Try
 
