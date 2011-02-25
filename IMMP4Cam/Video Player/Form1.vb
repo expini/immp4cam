@@ -54,12 +54,12 @@ Public Class IMMP4Cam
             SaveSetting("IMMP4Cam", "Settings", "Auto delete", False)
             SaveSetting("IMMP4Cam", "Settings", "Camera username", TextBoxUsername.Text)
             SaveSetting("IMMP4Cam", "Settings", "Camera password", TextBoxPassword.Text)
-            SaveSetting("IMMP4Cam", "Settings", "Colour", 255)
             SaveSetting("IMMP4Cam", "Settings", "Brightness", 80)
             SaveSetting("IMMP4Cam", "Settings", "Contrast", 128)
             SaveSetting("IMMP4Cam", "Settings", "Saturation", 128)
             SaveSetting("IMMP4Cam", "Settings", "Trim left", 0)
             SaveSetting("IMMP4Cam", "Settings", "Trim right", 0)
+            SaveSetting("IMMP4Cam", "Settings", "Compression", 8)
 
         Else
 
@@ -79,12 +79,12 @@ Public Class IMMP4Cam
             CheckBoxAutoDelete.Checked = GetSetting("IMMP4Cam", "Settings", "Auto delete")
             TextBoxUsername.Text = GetSetting("IMMP4Cam", "Settings", "Camera username")
             TextBoxPassword.Text = GetSetting("IMMP4Cam", "Settings", "Camera password")
-            NumericUpDownColour.Value = GetSetting("IMMP4Cam", "Settings", "Colour")
             NumericUpDownBrightness.Value = GetSetting("IMMP4Cam", "Settings", "Brightness")
             NumericUpDownContrast.Value = GetSetting("IMMP4Cam", "Settings", "Contrast")
             NumericUpDownSaturation.Value = GetSetting("IMMP4Cam", "Settings", "Saturation")
             NumericUpDownTrimLeft.Value = GetSetting("IMMP4Cam", "Settings", "Trim left")
             NumericUpDownTrimRight.Value = GetSetting("IMMP4Cam", "Settings", "Trim right")
+            NumericUpDownCompression.Value = GetSetting("IMMP4Cam", "Settings", "Compression")
 
         End If
 
@@ -158,12 +158,12 @@ Public Class IMMP4Cam
         SaveSetting("IMMP4Cam", "Settings", "Auto delete", CheckBoxAutoDelete.Checked)
         SaveSetting("IMMP4Cam", "Settings", "Camera username", TextBoxUsername.Text)
         SaveSetting("IMMP4Cam", "Settings", "Camera password", TextBoxPassword.Text)
-        SaveSetting("IMMP4Cam", "Settings", "Colour", NumericUpDownColour.Value)
         SaveSetting("IMMP4Cam", "Settings", "Brightness", NumericUpDownBrightness.Value)
         SaveSetting("IMMP4Cam", "Settings", "Contrast", NumericUpDownContrast.Value)
         SaveSetting("IMMP4Cam", "Settings", "Saturation", NumericUpDownSaturation.Value)
         SaveSetting("IMMP4Cam", "Settings", "Trim left", NumericUpDownTrimLeft.Value)
         SaveSetting("IMMP4Cam", "Settings", "Trim right", NumericUpDownTrimRight.Value)
+        SaveSetting("IMMP4Cam", "Settings", "Compression", NumericUpDownCompression.Value)
 
     End Sub
 
@@ -520,7 +520,7 @@ Public Class IMMP4Cam
 
     Private Sub ButtonSetCameraParametersColours_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles ButtonSetCameraParametersColours.Click
 
-        Dim open As String = "http://" + TextBoxCameraIP.Text + ":" + TextBoxCameraPort.Text + "/video_e.html?" + "V_OCol=" + NumericUpDownColour.Value.ToString + "&V_Br=" + NumericUpDownBrightness.Value.ToString + "&V_Co=" + NumericUpDownContrast.Value.ToString + "&V_Sa=" + NumericUpDownSaturation.Value.ToString
+        Dim open As String = "http://" + TextBoxCameraIP.Text + ":" + TextBoxCameraPort.Text + "/video_e.html?" + "V_Br=" + NumericUpDownBrightness.Value.ToString + "&V_Co=" + NumericUpDownContrast.Value.ToString + "&V_Sa=" + NumericUpDownSaturation.Value.ToString
 
         Try
 
@@ -875,10 +875,25 @@ Public Class IMMP4Cam
 
             WMPControl.Ctlcontrols.currentPosition = 0
 
-            Dim Ctlcontrols As WMPLib.IWMPControls = Me.WMPControl.Ctlcontrols
-            Dim Ctlcontrols2 As WMPLib.IWMPControls2 = DirectCast(Ctlcontrols, WMPLib.IWMPControls2)
+        End If
 
-            Ctlcontrols2.step(1)
+    End Sub
+
+    Private Sub ButtonFrameToEnd_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles ButtonFrameToEnd.Click
+
+        If WMPControl.playState.ToString = "wmppsPaused" Then
+
+            WMPControl.Ctlcontrols.currentPosition = WMPControl.currentMedia.duration - 0.08
+
+        End If
+
+    End Sub
+
+    Private Sub ButtonFrameReverse_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles ButtonFrameReverse.Click
+
+        If WMPControl.playState.ToString = "wmppsPaused" Then
+
+            WMPControl.Ctlcontrols.currentPosition = WMPControl.Ctlcontrols.currentPosition - 0.04
 
         End If
 
@@ -888,10 +903,7 @@ Public Class IMMP4Cam
 
         If WMPControl.playState.ToString = "wmppsPaused" Then
 
-            Dim Ctlcontrols As WMPLib.IWMPControls = Me.WMPControl.Ctlcontrols
-            Dim Ctlcontrols2 As WMPLib.IWMPControls2 = DirectCast(Ctlcontrols, WMPLib.IWMPControls2)
-
-            Ctlcontrols2.step(1)
+            WMPControl.Ctlcontrols.currentPosition = WMPControl.Ctlcontrols.currentPosition + 0.04
 
         End If
 
