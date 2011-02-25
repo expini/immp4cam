@@ -35,6 +35,13 @@ Partial Class IMMP4Cam
         Me.TimerRecordStop = New System.Windows.Forms.Timer(Me.components)
         Me.TimerUpdateFileList = New System.Windows.Forms.Timer(Me.components)
         Me.TabPageSettings = New System.Windows.Forms.TabPage()
+        Me.PanelCameraInfo = New System.Windows.Forms.Panel()
+        Me.TextBoxOCXVersion = New System.Windows.Forms.TextBox()
+        Me.LabelOCXVersion = New System.Windows.Forms.Label()
+        Me.PanelCameraSettings3 = New System.Windows.Forms.Panel()
+        Me.ButtonSetCameraParametersCompression = New System.Windows.Forms.Button()
+        Me.NumericUpDownCompression = New System.Windows.Forms.NumericUpDown()
+        Me.LabelCompression = New System.Windows.Forms.Label()
         Me.ButtonRestart = New System.Windows.Forms.Button()
         Me.PanelUsernamePassword = New System.Windows.Forms.Panel()
         Me.ButtonPassword = New System.Windows.Forms.Button()
@@ -49,10 +56,8 @@ Partial Class IMMP4Cam
         Me.ButtonSetCameraParametersColours = New System.Windows.Forms.Button()
         Me.NumericUpDownContrast = New System.Windows.Forms.NumericUpDown()
         Me.NumericUpDownBrightness = New System.Windows.Forms.NumericUpDown()
-        Me.NumericUpDownColour = New System.Windows.Forms.NumericUpDown()
         Me.LabelContrast = New System.Windows.Forms.Label()
         Me.LabelBrightness = New System.Windows.Forms.Label()
-        Me.LabelColour = New System.Windows.Forms.Label()
         Me.PanelProgramSettings = New System.Windows.Forms.Panel()
         Me.CheckBoxAutoDelete = New System.Windows.Forms.CheckBox()
         Me.NumericUpDownAutoDelete = New System.Windows.Forms.NumericUpDown()
@@ -92,6 +97,8 @@ Partial Class IMMP4Cam
         Me.LabelErosion = New System.Windows.Forms.Label()
         Me.LabelSensitivity = New System.Windows.Forms.Label()
         Me.TabPagePlayback = New System.Windows.Forms.TabPage()
+        Me.ButtonFrameToEnd = New System.Windows.Forms.Button()
+        Me.ButtonFrameReverse = New System.Windows.Forms.Button()
         Me.ButtonSave = New System.Windows.Forms.Button()
         Me.ButtonPanUp = New System.Windows.Forms.Button()
         Me.ButtonPanLeft = New System.Windows.Forms.Button()
@@ -143,21 +150,16 @@ Partial Class IMMP4Cam
         Me.TextBoxLiveViewCameraName = New System.Windows.Forms.TextBox()
         Me.TabControl = New System.Windows.Forms.TabControl()
         Me.TimerWMPStatus = New System.Windows.Forms.Timer(Me.components)
-        Me.PanelCameraSettings3 = New System.Windows.Forms.Panel()
-        Me.ButtonSetCameraParametersCompression = New System.Windows.Forms.Button()
-        Me.NumericUpDownCompression = New System.Windows.Forms.NumericUpDown()
-        Me.LabelCompression = New System.Windows.Forms.Label()
-        Me.PanelCameraInfo = New System.Windows.Forms.Panel()
-        Me.LabelOCXVersion = New System.Windows.Forms.Label()
-        Me.TextBoxOCXVersion = New System.Windows.Forms.TextBox()
         Me.StatusStrip.SuspendLayout()
         Me.TabPageSettings.SuspendLayout()
+        Me.PanelCameraInfo.SuspendLayout()
+        Me.PanelCameraSettings3.SuspendLayout()
+        CType(Me.NumericUpDownCompression, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.PanelUsernamePassword.SuspendLayout()
         Me.PanelCameraSettings2.SuspendLayout()
         CType(Me.NumericUpDownSaturation, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.NumericUpDownContrast, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.NumericUpDownBrightness, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.NumericUpDownColour, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.PanelProgramSettings.SuspendLayout()
         CType(Me.NumericUpDownAutoDelete, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.NumericUpDownTriggerLevelOff, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -179,9 +181,6 @@ Partial Class IMMP4Cam
         CType(Me.IMMP4Control, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.PanelStatus.SuspendLayout()
         Me.TabControl.SuspendLayout()
-        Me.PanelCameraSettings3.SuspendLayout()
-        CType(Me.NumericUpDownCompression, System.ComponentModel.ISupportInitialize).BeginInit()
-        Me.PanelCameraInfo.SuspendLayout()
         Me.SuspendLayout()
         '
         'StatusStrip
@@ -279,6 +278,75 @@ Partial Class IMMP4Cam
         Me.TabPageSettings.Text = "Settings"
         Me.TabPageSettings.UseVisualStyleBackColor = True
         '
+        'PanelCameraInfo
+        '
+        Me.PanelCameraInfo.BackColor = System.Drawing.SystemColors.Control
+        Me.PanelCameraInfo.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
+        Me.PanelCameraInfo.Controls.Add(Me.TextBoxOCXVersion)
+        Me.PanelCameraInfo.Controls.Add(Me.LabelOCXVersion)
+        Me.PanelCameraInfo.Location = New System.Drawing.Point(390, 31)
+        Me.PanelCameraInfo.Name = "PanelCameraInfo"
+        Me.PanelCameraInfo.Size = New System.Drawing.Size(327, 56)
+        Me.PanelCameraInfo.TabIndex = 49
+        '
+        'TextBoxOCXVersion
+        '
+        Me.TextBoxOCXVersion.BackColor = System.Drawing.Color.White
+        Me.TextBoxOCXVersion.Location = New System.Drawing.Point(131, 17)
+        Me.TextBoxOCXVersion.Name = "TextBoxOCXVersion"
+        Me.TextBoxOCXVersion.ReadOnly = True
+        Me.TextBoxOCXVersion.Size = New System.Drawing.Size(172, 20)
+        Me.TextBoxOCXVersion.TabIndex = 32
+        '
+        'LabelOCXVersion
+        '
+        Me.LabelOCXVersion.AutoSize = True
+        Me.LabelOCXVersion.Location = New System.Drawing.Point(12, 20)
+        Me.LabelOCXVersion.Name = "LabelOCXVersion"
+        Me.LabelOCXVersion.Size = New System.Drawing.Size(67, 13)
+        Me.LabelOCXVersion.TabIndex = 31
+        Me.LabelOCXVersion.Text = "OCX Version"
+        '
+        'PanelCameraSettings3
+        '
+        Me.PanelCameraSettings3.BackColor = System.Drawing.SystemColors.Control
+        Me.PanelCameraSettings3.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
+        Me.PanelCameraSettings3.Controls.Add(Me.ButtonSetCameraParametersCompression)
+        Me.PanelCameraSettings3.Controls.Add(Me.NumericUpDownCompression)
+        Me.PanelCameraSettings3.Controls.Add(Me.LabelCompression)
+        Me.PanelCameraSettings3.Location = New System.Drawing.Point(390, 448)
+        Me.PanelCameraSettings3.Name = "PanelCameraSettings3"
+        Me.PanelCameraSettings3.Size = New System.Drawing.Size(327, 91)
+        Me.PanelCameraSettings3.TabIndex = 48
+        '
+        'ButtonSetCameraParametersCompression
+        '
+        Me.ButtonSetCameraParametersCompression.Location = New System.Drawing.Point(131, 53)
+        Me.ButtonSetCameraParametersCompression.Name = "ButtonSetCameraParametersCompression"
+        Me.ButtonSetCameraParametersCompression.Size = New System.Drawing.Size(60, 20)
+        Me.ButtonSetCameraParametersCompression.TabIndex = 43
+        Me.ButtonSetCameraParametersCompression.Text = "Set"
+        Me.ButtonSetCameraParametersCompression.UseVisualStyleBackColor = True
+        '
+        'NumericUpDownCompression
+        '
+        Me.NumericUpDownCompression.Location = New System.Drawing.Point(199, 18)
+        Me.NumericUpDownCompression.Maximum = New Decimal(New Integer() {16, 0, 0, 0})
+        Me.NumericUpDownCompression.Minimum = New Decimal(New Integer() {5, 0, 0, 0})
+        Me.NumericUpDownCompression.Name = "NumericUpDownCompression"
+        Me.NumericUpDownCompression.Size = New System.Drawing.Size(50, 20)
+        Me.NumericUpDownCompression.TabIndex = 34
+        Me.NumericUpDownCompression.Value = New Decimal(New Integer() {8, 0, 0, 0})
+        '
+        'LabelCompression
+        '
+        Me.LabelCompression.AutoSize = True
+        Me.LabelCompression.Location = New System.Drawing.Point(68, 20)
+        Me.LabelCompression.Name = "LabelCompression"
+        Me.LabelCompression.Size = New System.Drawing.Size(67, 13)
+        Me.LabelCompression.TabIndex = 31
+        Me.LabelCompression.Text = "Compression"
+        '
         'ButtonRestart
         '
         Me.ButtonRestart.Location = New System.Drawing.Point(522, 633)
@@ -367,18 +435,16 @@ Partial Class IMMP4Cam
         Me.PanelCameraSettings2.Controls.Add(Me.ButtonSetCameraParametersColours)
         Me.PanelCameraSettings2.Controls.Add(Me.NumericUpDownContrast)
         Me.PanelCameraSettings2.Controls.Add(Me.NumericUpDownBrightness)
-        Me.PanelCameraSettings2.Controls.Add(Me.NumericUpDownColour)
         Me.PanelCameraSettings2.Controls.Add(Me.LabelContrast)
         Me.PanelCameraSettings2.Controls.Add(Me.LabelBrightness)
-        Me.PanelCameraSettings2.Controls.Add(Me.LabelColour)
         Me.PanelCameraSettings2.Location = New System.Drawing.Point(390, 248)
         Me.PanelCameraSettings2.Name = "PanelCameraSettings2"
-        Me.PanelCameraSettings2.Size = New System.Drawing.Size(327, 204)
+        Me.PanelCameraSettings2.Size = New System.Drawing.Size(327, 165)
         Me.PanelCameraSettings2.TabIndex = 46
         '
         'NumericUpDownSaturation
         '
-        Me.NumericUpDownSaturation.Location = New System.Drawing.Point(199, 122)
+        Me.NumericUpDownSaturation.Location = New System.Drawing.Point(200, 86)
         Me.NumericUpDownSaturation.Maximum = New Decimal(New Integer() {255, 0, 0, 0})
         Me.NumericUpDownSaturation.Minimum = New Decimal(New Integer() {50, 0, 0, 0})
         Me.NumericUpDownSaturation.Name = "NumericUpDownSaturation"
@@ -389,7 +455,7 @@ Partial Class IMMP4Cam
         'LabelSaturation
         '
         Me.LabelSaturation.AutoSize = True
-        Me.LabelSaturation.Location = New System.Drawing.Point(67, 124)
+        Me.LabelSaturation.Location = New System.Drawing.Point(68, 88)
         Me.LabelSaturation.Name = "LabelSaturation"
         Me.LabelSaturation.Size = New System.Drawing.Size(55, 13)
         Me.LabelSaturation.TabIndex = 44
@@ -397,7 +463,7 @@ Partial Class IMMP4Cam
         '
         'ButtonSetCameraParametersColours
         '
-        Me.ButtonSetCameraParametersColours.Location = New System.Drawing.Point(131, 161)
+        Me.ButtonSetCameraParametersColours.Location = New System.Drawing.Point(131, 124)
         Me.ButtonSetCameraParametersColours.Name = "ButtonSetCameraParametersColours"
         Me.ButtonSetCameraParametersColours.Size = New System.Drawing.Size(60, 20)
         Me.ButtonSetCameraParametersColours.TabIndex = 43
@@ -406,7 +472,7 @@ Partial Class IMMP4Cam
         '
         'NumericUpDownContrast
         '
-        Me.NumericUpDownContrast.Location = New System.Drawing.Point(199, 88)
+        Me.NumericUpDownContrast.Location = New System.Drawing.Point(200, 52)
         Me.NumericUpDownContrast.Maximum = New Decimal(New Integer() {255, 0, 0, 0})
         Me.NumericUpDownContrast.Minimum = New Decimal(New Integer() {50, 0, 0, 0})
         Me.NumericUpDownContrast.Name = "NumericUpDownContrast"
@@ -416,7 +482,7 @@ Partial Class IMMP4Cam
         '
         'NumericUpDownBrightness
         '
-        Me.NumericUpDownBrightness.Location = New System.Drawing.Point(199, 53)
+        Me.NumericUpDownBrightness.Location = New System.Drawing.Point(200, 17)
         Me.NumericUpDownBrightness.Maximum = New Decimal(New Integer() {255, 0, 0, 0})
         Me.NumericUpDownBrightness.Minimum = New Decimal(New Integer() {50, 0, 0, 0})
         Me.NumericUpDownBrightness.Name = "NumericUpDownBrightness"
@@ -424,19 +490,10 @@ Partial Class IMMP4Cam
         Me.NumericUpDownBrightness.TabIndex = 35
         Me.NumericUpDownBrightness.Value = New Decimal(New Integer() {80, 0, 0, 0})
         '
-        'NumericUpDownColour
-        '
-        Me.NumericUpDownColour.Location = New System.Drawing.Point(199, 18)
-        Me.NumericUpDownColour.Maximum = New Decimal(New Integer() {255, 0, 0, 0})
-        Me.NumericUpDownColour.Name = "NumericUpDownColour"
-        Me.NumericUpDownColour.Size = New System.Drawing.Size(50, 20)
-        Me.NumericUpDownColour.TabIndex = 34
-        Me.NumericUpDownColour.Value = New Decimal(New Integer() {255, 0, 0, 0})
-        '
         'LabelContrast
         '
         Me.LabelContrast.AutoSize = True
-        Me.LabelContrast.Location = New System.Drawing.Point(67, 90)
+        Me.LabelContrast.Location = New System.Drawing.Point(68, 54)
         Me.LabelContrast.Name = "LabelContrast"
         Me.LabelContrast.Size = New System.Drawing.Size(46, 13)
         Me.LabelContrast.TabIndex = 33
@@ -445,20 +502,11 @@ Partial Class IMMP4Cam
         'LabelBrightness
         '
         Me.LabelBrightness.AutoSize = True
-        Me.LabelBrightness.Location = New System.Drawing.Point(67, 55)
+        Me.LabelBrightness.Location = New System.Drawing.Point(68, 19)
         Me.LabelBrightness.Name = "LabelBrightness"
         Me.LabelBrightness.Size = New System.Drawing.Size(56, 13)
         Me.LabelBrightness.TabIndex = 32
         Me.LabelBrightness.Text = "Brightness"
-        '
-        'LabelColour
-        '
-        Me.LabelColour.AutoSize = True
-        Me.LabelColour.Location = New System.Drawing.Point(68, 20)
-        Me.LabelColour.Name = "LabelColour"
-        Me.LabelColour.Size = New System.Drawing.Size(37, 13)
-        Me.LabelColour.TabIndex = 31
-        Me.LabelColour.Text = "Colour"
         '
         'PanelProgramSettings
         '
@@ -844,6 +892,8 @@ Partial Class IMMP4Cam
         '
         'TabPagePlayback
         '
+        Me.TabPagePlayback.Controls.Add(Me.ButtonFrameToEnd)
+        Me.TabPagePlayback.Controls.Add(Me.ButtonFrameReverse)
         Me.TabPagePlayback.Controls.Add(Me.ButtonSave)
         Me.TabPagePlayback.Controls.Add(Me.ButtonPanUp)
         Me.TabPagePlayback.Controls.Add(Me.ButtonPanLeft)
@@ -887,9 +937,27 @@ Partial Class IMMP4Cam
         Me.TabPagePlayback.Text = "Playback"
         Me.TabPagePlayback.UseVisualStyleBackColor = True
         '
+        'ButtonFrameToEnd
+        '
+        Me.ButtonFrameToEnd.Location = New System.Drawing.Point(72, 542)
+        Me.ButtonFrameToEnd.Name = "ButtonFrameToEnd"
+        Me.ButtonFrameToEnd.Size = New System.Drawing.Size(50, 25)
+        Me.ButtonFrameToEnd.TabIndex = 69
+        Me.ButtonFrameToEnd.Text = ">>"
+        Me.ButtonFrameToEnd.UseVisualStyleBackColor = True
+        '
+        'ButtonFrameReverse
+        '
+        Me.ButtonFrameReverse.Location = New System.Drawing.Point(16, 511)
+        Me.ButtonFrameReverse.Name = "ButtonFrameReverse"
+        Me.ButtonFrameReverse.Size = New System.Drawing.Size(50, 25)
+        Me.ButtonFrameReverse.TabIndex = 68
+        Me.ButtonFrameReverse.Text = "<"
+        Me.ButtonFrameReverse.UseVisualStyleBackColor = True
+        '
         'ButtonSave
         '
-        Me.ButtonSave.Location = New System.Drawing.Point(128, 511)
+        Me.ButtonSave.Location = New System.Drawing.Point(128, 542)
         Me.ButtonSave.Name = "ButtonSave"
         Me.ButtonSave.Size = New System.Drawing.Size(50, 25)
         Me.ButtonSave.TabIndex = 67
@@ -898,7 +966,7 @@ Partial Class IMMP4Cam
         '
         'ButtonPanUp
         '
-        Me.ButtonPanUp.Location = New System.Drawing.Point(280, 480)
+        Me.ButtonPanUp.Location = New System.Drawing.Point(275, 480)
         Me.ButtonPanUp.Name = "ButtonPanUp"
         Me.ButtonPanUp.Size = New System.Drawing.Size(50, 25)
         Me.ButtonPanUp.TabIndex = 64
@@ -907,7 +975,7 @@ Partial Class IMMP4Cam
         '
         'ButtonPanLeft
         '
-        Me.ButtonPanLeft.Location = New System.Drawing.Point(233, 511)
+        Me.ButtonPanLeft.Location = New System.Drawing.Point(228, 511)
         Me.ButtonPanLeft.Name = "ButtonPanLeft"
         Me.ButtonPanLeft.Size = New System.Drawing.Size(50, 25)
         Me.ButtonPanLeft.TabIndex = 63
@@ -916,7 +984,7 @@ Partial Class IMMP4Cam
         '
         'ButtonPanDown
         '
-        Me.ButtonPanDown.Location = New System.Drawing.Point(280, 542)
+        Me.ButtonPanDown.Location = New System.Drawing.Point(275, 542)
         Me.ButtonPanDown.Name = "ButtonPanDown"
         Me.ButtonPanDown.Size = New System.Drawing.Size(50, 25)
         Me.ButtonPanDown.TabIndex = 62
@@ -925,7 +993,7 @@ Partial Class IMMP4Cam
         '
         'ButtonPanRight
         '
-        Me.ButtonPanRight.Location = New System.Drawing.Point(325, 511)
+        Me.ButtonPanRight.Location = New System.Drawing.Point(320, 511)
         Me.ButtonPanRight.Name = "ButtonPanRight"
         Me.ButtonPanRight.Size = New System.Drawing.Size(50, 25)
         Me.ButtonPanRight.TabIndex = 61
@@ -1159,7 +1227,7 @@ Partial Class IMMP4Cam
         '
         'ButtonFrameToStart
         '
-        Me.ButtonFrameToStart.Location = New System.Drawing.Point(16, 511)
+        Me.ButtonFrameToStart.Location = New System.Drawing.Point(16, 542)
         Me.ButtonFrameToStart.Name = "ButtonFrameToStart"
         Me.ButtonFrameToStart.Size = New System.Drawing.Size(50, 25)
         Me.ButtonFrameToStart.TabIndex = 33
@@ -1383,75 +1451,6 @@ Partial Class IMMP4Cam
         '
         Me.TimerWMPStatus.Interval = 40
         '
-        'PanelCameraSettings3
-        '
-        Me.PanelCameraSettings3.BackColor = System.Drawing.SystemColors.Control
-        Me.PanelCameraSettings3.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
-        Me.PanelCameraSettings3.Controls.Add(Me.ButtonSetCameraParametersCompression)
-        Me.PanelCameraSettings3.Controls.Add(Me.NumericUpDownCompression)
-        Me.PanelCameraSettings3.Controls.Add(Me.LabelCompression)
-        Me.PanelCameraSettings3.Location = New System.Drawing.Point(390, 484)
-        Me.PanelCameraSettings3.Name = "PanelCameraSettings3"
-        Me.PanelCameraSettings3.Size = New System.Drawing.Size(327, 91)
-        Me.PanelCameraSettings3.TabIndex = 48
-        '
-        'ButtonSetCameraParametersCompression
-        '
-        Me.ButtonSetCameraParametersCompression.Location = New System.Drawing.Point(131, 53)
-        Me.ButtonSetCameraParametersCompression.Name = "ButtonSetCameraParametersCompression"
-        Me.ButtonSetCameraParametersCompression.Size = New System.Drawing.Size(60, 20)
-        Me.ButtonSetCameraParametersCompression.TabIndex = 43
-        Me.ButtonSetCameraParametersCompression.Text = "Set"
-        Me.ButtonSetCameraParametersCompression.UseVisualStyleBackColor = True
-        '
-        'NumericUpDownCompression
-        '
-        Me.NumericUpDownCompression.Location = New System.Drawing.Point(199, 18)
-        Me.NumericUpDownCompression.Maximum = New Decimal(New Integer() {16, 0, 0, 0})
-        Me.NumericUpDownCompression.Minimum = New Decimal(New Integer() {5, 0, 0, 0})
-        Me.NumericUpDownCompression.Name = "NumericUpDownCompression"
-        Me.NumericUpDownCompression.Size = New System.Drawing.Size(50, 20)
-        Me.NumericUpDownCompression.TabIndex = 34
-        Me.NumericUpDownCompression.Value = New Decimal(New Integer() {8, 0, 0, 0})
-        '
-        'LabelCompression
-        '
-        Me.LabelCompression.AutoSize = True
-        Me.LabelCompression.Location = New System.Drawing.Point(68, 20)
-        Me.LabelCompression.Name = "LabelCompression"
-        Me.LabelCompression.Size = New System.Drawing.Size(67, 13)
-        Me.LabelCompression.TabIndex = 31
-        Me.LabelCompression.Text = "Compression"
-        '
-        'PanelCameraInfo
-        '
-        Me.PanelCameraInfo.BackColor = System.Drawing.SystemColors.Control
-        Me.PanelCameraInfo.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
-        Me.PanelCameraInfo.Controls.Add(Me.TextBoxOCXVersion)
-        Me.PanelCameraInfo.Controls.Add(Me.LabelOCXVersion)
-        Me.PanelCameraInfo.Location = New System.Drawing.Point(390, 31)
-        Me.PanelCameraInfo.Name = "PanelCameraInfo"
-        Me.PanelCameraInfo.Size = New System.Drawing.Size(327, 56)
-        Me.PanelCameraInfo.TabIndex = 49
-        '
-        'LabelOCXVersion
-        '
-        Me.LabelOCXVersion.AutoSize = True
-        Me.LabelOCXVersion.Location = New System.Drawing.Point(12, 20)
-        Me.LabelOCXVersion.Name = "LabelOCXVersion"
-        Me.LabelOCXVersion.Size = New System.Drawing.Size(67, 13)
-        Me.LabelOCXVersion.TabIndex = 31
-        Me.LabelOCXVersion.Text = "OCX Version"
-        '
-        'TextBoxOCXVersion
-        '
-        Me.TextBoxOCXVersion.BackColor = System.Drawing.Color.White
-        Me.TextBoxOCXVersion.Location = New System.Drawing.Point(131, 17)
-        Me.TextBoxOCXVersion.Name = "TextBoxOCXVersion"
-        Me.TextBoxOCXVersion.ReadOnly = True
-        Me.TextBoxOCXVersion.Size = New System.Drawing.Size(172, 20)
-        Me.TextBoxOCXVersion.TabIndex = 32
-        '
         'IMMP4Cam
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -1467,6 +1466,11 @@ Partial Class IMMP4Cam
         Me.StatusStrip.ResumeLayout(False)
         Me.StatusStrip.PerformLayout()
         Me.TabPageSettings.ResumeLayout(False)
+        Me.PanelCameraInfo.ResumeLayout(False)
+        Me.PanelCameraInfo.PerformLayout()
+        Me.PanelCameraSettings3.ResumeLayout(False)
+        Me.PanelCameraSettings3.PerformLayout()
+        CType(Me.NumericUpDownCompression, System.ComponentModel.ISupportInitialize).EndInit()
         Me.PanelUsernamePassword.ResumeLayout(False)
         Me.PanelUsernamePassword.PerformLayout()
         Me.PanelCameraSettings2.ResumeLayout(False)
@@ -1474,7 +1478,6 @@ Partial Class IMMP4Cam
         CType(Me.NumericUpDownSaturation, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.NumericUpDownContrast, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.NumericUpDownBrightness, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.NumericUpDownColour, System.ComponentModel.ISupportInitialize).EndInit()
         Me.PanelProgramSettings.ResumeLayout(False)
         Me.PanelProgramSettings.PerformLayout()
         CType(Me.NumericUpDownAutoDelete, System.ComponentModel.ISupportInitialize).EndInit()
@@ -1502,11 +1505,6 @@ Partial Class IMMP4Cam
         Me.PanelStatus.ResumeLayout(False)
         Me.PanelStatus.PerformLayout()
         Me.TabControl.ResumeLayout(False)
-        Me.PanelCameraSettings3.ResumeLayout(False)
-        Me.PanelCameraSettings3.PerformLayout()
-        CType(Me.NumericUpDownCompression, System.ComponentModel.ISupportInitialize).EndInit()
-        Me.PanelCameraInfo.ResumeLayout(False)
-        Me.PanelCameraInfo.PerformLayout()
         Me.ResumeLayout(False)
 
     End Sub
@@ -1611,10 +1609,8 @@ Partial Class IMMP4Cam
     Friend WithEvents ButtonSetCameraParametersColours As System.Windows.Forms.Button
     Friend WithEvents NumericUpDownContrast As System.Windows.Forms.NumericUpDown
     Friend WithEvents NumericUpDownBrightness As System.Windows.Forms.NumericUpDown
-    Friend WithEvents NumericUpDownColour As System.Windows.Forms.NumericUpDown
     Friend WithEvents LabelContrast As System.Windows.Forms.Label
     Friend WithEvents LabelBrightness As System.Windows.Forms.Label
-    Friend WithEvents LabelColour As System.Windows.Forms.Label
     Friend WithEvents PanelUsernamePassword As System.Windows.Forms.Panel
     Friend WithEvents ButtonPassword As System.Windows.Forms.Button
     Friend WithEvents ButtonUsername As System.Windows.Forms.Button
@@ -1637,5 +1633,7 @@ Partial Class IMMP4Cam
     Friend WithEvents PanelCameraInfo As System.Windows.Forms.Panel
     Friend WithEvents LabelOCXVersion As System.Windows.Forms.Label
     Friend WithEvents TextBoxOCXVersion As System.Windows.Forms.TextBox
+    Friend WithEvents ButtonFrameReverse As System.Windows.Forms.Button
+    Friend WithEvents ButtonFrameToEnd As System.Windows.Forms.Button
 
 End Class
