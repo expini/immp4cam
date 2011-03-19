@@ -883,7 +883,7 @@ Public Class IMMP4Cam
 
         If WMPControl.playState.ToString = "wmppsPaused" Then
 
-            WMPControl.Ctlcontrols.currentPosition = WMPControl.currentMedia.duration - 0.08
+            WMPControl.Ctlcontrols.currentPosition = WMPControl.currentMedia.duration - (2 * (1 / WMPControl.network.encodedFrameRate))
 
         End If
 
@@ -893,7 +893,7 @@ Public Class IMMP4Cam
 
         If WMPControl.playState.ToString = "wmppsPaused" Then
 
-            WMPControl.Ctlcontrols.currentPosition = WMPControl.Ctlcontrols.currentPosition - 0.04
+            WMPControl.Ctlcontrols.currentPosition = WMPControl.Ctlcontrols.currentPosition - (1 / WMPControl.network.encodedFrameRate)
 
         End If
 
@@ -903,7 +903,11 @@ Public Class IMMP4Cam
 
         If WMPControl.playState.ToString = "wmppsPaused" Then
 
-            WMPControl.Ctlcontrols.currentPosition = WMPControl.Ctlcontrols.currentPosition + 0.04
+            If WMPControl.Ctlcontrols.currentPosition < WMPControl.currentMedia.duration - (2 * (1 / WMPControl.network.encodedFrameRate)) Then
+
+                WMPControl.Ctlcontrols.currentPosition = WMPControl.Ctlcontrols.currentPosition + (1 / WMPControl.network.encodedFrameRate)
+
+            End If
 
         End If
 
