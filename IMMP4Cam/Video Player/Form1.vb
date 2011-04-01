@@ -879,7 +879,7 @@ Public Class IMMP4Cam
 
     End Sub
 
-    Private Sub ButtonFrameToEnd_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles ButtonFrameToEnd.Click
+    Private Sub ButtonFrameToEnd_Click(ByVal sender As System.Object, ByVal e As System.EventArgs)
 
         If WMPControl.playState.ToString = "wmppsPaused" Then
 
@@ -889,7 +889,7 @@ Public Class IMMP4Cam
 
     End Sub
 
-    Private Sub ButtonFrameReverse_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles ButtonFrameReverse.Click
+    Private Sub ButtonFrameReverse_Click(ByVal sender As System.Object, ByVal e As System.EventArgs)
 
         If WMPControl.playState.ToString = "wmppsPaused" Then
 
@@ -903,11 +903,8 @@ Public Class IMMP4Cam
 
         If WMPControl.playState.ToString = "wmppsPaused" Then
 
-            If WMPControl.Ctlcontrols.currentPosition < WMPControl.currentMedia.duration - (2 * (1 / WMPControl.network.encodedFrameRate)) Then
-
-                WMPControl.Ctlcontrols.currentPosition = WMPControl.Ctlcontrols.currentPosition + (1 / WMPControl.network.encodedFrameRate)
-
-            End If
+            WMPControl.Ctlcontrols.play()
+            WMPControl.Ctlcontrols.pause()
 
         End If
 

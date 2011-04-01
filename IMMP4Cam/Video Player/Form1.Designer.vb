@@ -97,8 +97,6 @@ Partial Class IMMP4Cam
         Me.LabelErosion = New System.Windows.Forms.Label()
         Me.LabelSensitivity = New System.Windows.Forms.Label()
         Me.TabPagePlayback = New System.Windows.Forms.TabPage()
-        Me.ButtonFrameToEnd = New System.Windows.Forms.Button()
-        Me.ButtonFrameReverse = New System.Windows.Forms.Button()
         Me.ButtonSave = New System.Windows.Forms.Button()
         Me.ButtonPanUp = New System.Windows.Forms.Button()
         Me.ButtonPanLeft = New System.Windows.Forms.Button()
@@ -892,8 +890,6 @@ Partial Class IMMP4Cam
         '
         'TabPagePlayback
         '
-        Me.TabPagePlayback.Controls.Add(Me.ButtonFrameToEnd)
-        Me.TabPagePlayback.Controls.Add(Me.ButtonFrameReverse)
         Me.TabPagePlayback.Controls.Add(Me.ButtonSave)
         Me.TabPagePlayback.Controls.Add(Me.ButtonPanUp)
         Me.TabPagePlayback.Controls.Add(Me.ButtonPanLeft)
@@ -937,27 +933,9 @@ Partial Class IMMP4Cam
         Me.TabPagePlayback.Text = "Playback"
         Me.TabPagePlayback.UseVisualStyleBackColor = True
         '
-        'ButtonFrameToEnd
-        '
-        Me.ButtonFrameToEnd.Location = New System.Drawing.Point(72, 542)
-        Me.ButtonFrameToEnd.Name = "ButtonFrameToEnd"
-        Me.ButtonFrameToEnd.Size = New System.Drawing.Size(50, 25)
-        Me.ButtonFrameToEnd.TabIndex = 69
-        Me.ButtonFrameToEnd.Text = ">>"
-        Me.ButtonFrameToEnd.UseVisualStyleBackColor = True
-        '
-        'ButtonFrameReverse
-        '
-        Me.ButtonFrameReverse.Location = New System.Drawing.Point(16, 511)
-        Me.ButtonFrameReverse.Name = "ButtonFrameReverse"
-        Me.ButtonFrameReverse.Size = New System.Drawing.Size(50, 25)
-        Me.ButtonFrameReverse.TabIndex = 68
-        Me.ButtonFrameReverse.Text = "<"
-        Me.ButtonFrameReverse.UseVisualStyleBackColor = True
-        '
         'ButtonSave
         '
-        Me.ButtonSave.Location = New System.Drawing.Point(128, 542)
+        Me.ButtonSave.Location = New System.Drawing.Point(128, 511)
         Me.ButtonSave.Name = "ButtonSave"
         Me.ButtonSave.Size = New System.Drawing.Size(50, 25)
         Me.ButtonSave.TabIndex = 67
@@ -1227,7 +1205,7 @@ Partial Class IMMP4Cam
         '
         'ButtonFrameToStart
         '
-        Me.ButtonFrameToStart.Location = New System.Drawing.Point(16, 542)
+        Me.ButtonFrameToStart.Location = New System.Drawing.Point(16, 511)
         Me.ButtonFrameToStart.Name = "ButtonFrameToStart"
         Me.ButtonFrameToStart.Size = New System.Drawing.Size(50, 25)
         Me.ButtonFrameToStart.TabIndex = 33
@@ -1633,7 +1611,5 @@ Partial Class IMMP4Cam
     Friend WithEvents PanelCameraInfo As System.Windows.Forms.Panel
     Friend WithEvents LabelOCXVersion As System.Windows.Forms.Label
     Friend WithEvents TextBoxOCXVersion As System.Windows.Forms.TextBox
-    Friend WithEvents ButtonFrameReverse As System.Windows.Forms.Button
-    Friend WithEvents ButtonFrameToEnd As System.Windows.Forms.Button
 
 End Class
